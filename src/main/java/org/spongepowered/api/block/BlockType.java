@@ -121,4 +121,11 @@ public interface BlockType extends Translatable {
      */
     float getEmittedLight();
 
+    /**
+     * Gets if the block is able to be gathered using the silk touch
+     * enchantment.
+     *
+     * @return If the block can be harvested with silk touch
+     */
+    boolean canHarvestWithSilk();
 }
