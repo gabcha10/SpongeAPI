@@ -25,6 +25,7 @@
 
 package org.spongepowered.api.block;
 
+import org.spongepowered.api.item.ItemBlock;
 import org.spongepowered.api.text.translation.Translatable;
 import org.spongepowered.api.util.DataHolder;
 
@@ -128,4 +129,11 @@ public interface BlockType extends Translatable {
      * @return If the block can be harvested with silk touch
      */
     boolean canHarvestWithSilk();
+
+    /**
+     * Gets the equivalent {@link ItemBlock} for this BlockType.
+     *
+     * @return The equivalent {@link ItemBlock}
+     */
+    ItemBlock getHeldItem();
 }
