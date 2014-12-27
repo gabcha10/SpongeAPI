@@ -22,47 +22,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package org.spongepowered.api.event.player;
 
-package org.spongepowered.api.event.entity;
-
-import org.spongepowered.api.entity.Entity;
-import org.spongepowered.api.event.cause.CauseTracked;
-import org.spongepowered.api.item.inventory.ItemStack;
-import org.spongepowered.api.util.event.Cancellable;
-
-import java.util.List;
+import org.spongepowered.api.world.Location;
 
 /**
- * Called when an {@link Entity} is killed or removed due to unload.
+ * Called when a player respawns after death.
  */
-public interface EntityDeathEvent extends EntityEvent, CauseTracked, Cancellable {
+public interface PlayerRespawnEvent extends PlayerEvent {
 
     /**
-     * Gets a copy of the {@link ItemStack}s this entity will drop on death.
+     * Gets the respawn location of the player.
      *
-     * @return A copy of the list of itemstacks the entity will drop
+     * @return The respawn location of the player
      */
-    List<ItemStack> getDrops();
+    Location getRespawnLocation();
 
     /**
-     * Sets the list of {@link ItemStack}s the entity will drop on death.
+     * Gets whether the respawn location was set by a bed or not.
      *
-     * @param drops The list of drops the entity will drop on death
+     * @return Whether the respawn location was set by a bed
      */
-    void setDrops(List<ItemStack> drops);
+    boolean isBedSpawn();
 
     /**
-     * Gets the amount of experience that will be dropped on death.
+     * Sets the new player respawn location permanently.
      *
-     * @return The amount of experience that will be dropped on death
+     * @param respawnLocation The new respawn location
      */
-    int getDroppedExperience();
+    void setSpawnLocation(Location respawnLocation);
 
-    /**
-     * Sets the amount of experience that will be dropped on death.
-     *
-     * @param experience The amount of experience that will be dropped on death
-     */
-    void setDroppedExperience(int experience);
-    
 }

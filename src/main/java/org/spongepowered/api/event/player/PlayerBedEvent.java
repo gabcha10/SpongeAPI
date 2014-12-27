@@ -33,7 +33,7 @@ import org.spongepowered.api.world.Location;
 public interface PlayerBedEvent extends PlayerEvent {
 
     /**
-     * Gets the location of the player in respect to the bed.
+     * Gets the location of the player before entering the bed.
      *
      * @return The location of the player
      */
