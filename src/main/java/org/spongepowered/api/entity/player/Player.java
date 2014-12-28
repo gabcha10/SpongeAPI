@@ -33,7 +33,7 @@ import org.spongepowered.api.text.title.Title;
 import org.spongepowered.api.text.translation.locale.Locales;
 import org.spongepowered.api.util.command.CommandSource;
 
-import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.Locale;
 
 /**
@@ -120,9 +120,9 @@ public interface Player extends Human, User, CommandSource, Viewer {
     void clearTitle();
 
     /**
-     * Gets the {@link InetAddress} from which this player is connecting from.
+     * Gets the {@link InetSocketAddress} from which this player is connecting from.
      *
      * @return The player's address
      */
-    InetAddress getAddress();
+    InetSocketAddress getAddress();
 }
