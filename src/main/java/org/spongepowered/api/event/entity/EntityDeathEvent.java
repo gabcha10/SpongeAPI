@@ -29,6 +29,7 @@ import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.event.cause.CauseTracked;
 import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.util.event.Cancellable;
+import org.spongepowered.api.world.Location;
 
 import java.util.List;
 
@@ -36,6 +37,14 @@ import java.util.List;
  * Called when an {@link Entity} is killed or removed due to unload.
  */
 public interface EntityDeathEvent extends EntityEvent, CauseTracked, Cancellable {
+
+
+    /**
+     * Gets the location of the player's death.
+     *
+     * @return The {@link Location} of the player's death
+     */
+    Location getLocation();
 
     /**
      * Gets a copy of the {@link ItemStack}s this entity will drop on death.
@@ -64,5 +73,6 @@ public interface EntityDeathEvent extends EntityEvent, CauseTracked, Cancellable
      * @param experience The amount of experience that will be dropped on death
      */
     void setDroppedExperience(int experience);
+
     
 }
