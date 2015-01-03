@@ -25,10 +25,9 @@
 
 package org.spongepowered.api.entity.player;
 
-import com.google.common.base.Optional;
 import org.spongepowered.api.effect.Viewer;
 import org.spongepowered.api.entity.living.Human;
-import org.spongepowered.api.net.PlayerConnection;
+import org.spongepowered.api.net.PlayerNetworkHandler;
 import org.spongepowered.api.text.chat.ChatType;
 import org.spongepowered.api.text.message.Message;
 import org.spongepowered.api.text.title.Title;
@@ -121,13 +120,10 @@ public interface Player extends Human, User, CommandSource, Viewer {
     void clearTitle();
 
     /**
-     * Gets the appropriate {@link PlayerConnection} linking this Player
+     * Gets the appropriate {@link PlayerNetworkHandler} linking this Player
      * to a client.
      *
-     * <p>Not all Players may have a connection, in the case of dummy players
-     * existing on the server.</p>
-     *
-     * @return The connection, if available
+     * @return The connection
      */
-    Optional<PlayerConnection> getConnection();
+    PlayerNetworkHandler getNetwork();
 }

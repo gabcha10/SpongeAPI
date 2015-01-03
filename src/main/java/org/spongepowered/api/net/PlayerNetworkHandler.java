@@ -31,7 +31,7 @@ import java.net.InetAddress;
 /**
  * Represents a connection of a client to the server.
  */
-public interface PlayerConnection {
+public interface PlayerNetworkHandler {
 
     /**
      * Gets the associated Player that this player connection is associated
