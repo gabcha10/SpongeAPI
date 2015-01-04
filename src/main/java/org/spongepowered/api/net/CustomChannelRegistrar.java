@@ -24,55 +24,27 @@
  */
 package org.spongepowered.api.net;
 
-import org.spongepowered.api.entity.player.Player;
+import java.util.List;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-
-/**
- * Represents a connection of a client to the server.
- */
-public interface PlayerNetworkHandler {
+public interface CustomChannelRegistrar {
 
     /**
-     * Gets the associated Player that this player connection is associated
-     * with.
+     * Registers the given channel to the plugin
      *
-     * @return The associated player
+     * @param plugin The plugin registering the channel
+     * @param channel The channel to register
      */
-    Player getPlayer();
+    void registerChannel(Object plugin, String channel);
 
     /**
-     * Gets the {@link InetAddress} of this connection.
+     * Gets the list of registered channels.
      *
-     * @return The address
+     * <p>Channel registration is a global registration, all clients
+     * will automatically be registered with the given channels on the
+     * server and vice versa.</p>
+     *
+     * @return A copy of the list of channels
      */
-    InetAddress getAddress();
+    List<String> getRegisteredChannels();
 
-    /**
-     * Gets the host name the connection is connecting to the server with.
-     *
-     * <p>Examples include: If a player is connecting to `mc.example.com`,
-     * the hostname will show `mc.example.com`. This is NOT the originating
-     * hostname of the client.</p>
-     *
-     * @return The host name
-     */
-    InetSocketAddress getVirtualHost();
-
-    /**
-     * Gets the connection ping. This is constantly calculated by the server.
-     *
-     * @return The ping
-     */
-    int getPing();
-
-    /**
-     * Sends a custom payload to the player connection.
-     *
-     * @param plugin The instance of the plugin
-     * @param channel The channel to send to
-     * @param data The data
-     */
-    void sendCustomPayload(Object plugin, String channel, byte[] data);
 }
